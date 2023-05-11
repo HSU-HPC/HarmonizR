@@ -14,7 +14,7 @@ For detailed instructions please refer to our [Standard operating Procedure](htt
 2. While having [devtools](https://www.r-project.org/nosvn/pandoc/devtools.html) installed, run
 `devtools::install("HarmonizR")` within the HarmonizR package.
 
-Alternatively the package can be installed directly from GitHub via the command devtools::install_github(“HSU-HPC/HarmonizR_1.0/HarmonizR@HarmonizR-1.1”).
+Alternatively the package can be installed directly from GitHub via the command devtools::install_github(“HSU-HPC/HarmonizR”).
 
 ## Usage
 Include `library(HarmonizR)` in your R script and execute it with your data and batch description files as demonstrated with the example files `harmonizR(“murine_medulloblastoma_data.tsv”, “murine_medulloblastoma_description.csv”)`.
