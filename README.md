@@ -6,7 +6,7 @@ The adjusted data is returned to the user as a rebuild matrix.
 The implementation is meant to make as much data available as possible with minimal data loss.
 
 ## Standard operating Procedure
-For detailed instructions please refer to our [Standard operating Procedure](https://www.github.com/HSU-HPC/HarmonizR_1.0/tree/HarmonizR-1.1/HarmonizR_SOP.pdf).
+For detailed instructions please refer to our [Standard operating Procedure](https://github.com/HSU-HPC/HarmonizR_v1.1/blob/main/inst/HarmonizR_SOP.pdf).
 
 ## Installation
 1. Clone this repository
