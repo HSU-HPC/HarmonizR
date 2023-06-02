@@ -18,3 +18,14 @@ Alternatively the package can be installed directly from GitHub via the command 
 
 ## Usage
 Include `library(HarmonizR)` in your R script and execute it with your data and batch description files as demonstrated with the example files `harmonizR(“murine_medulloblastoma_data.tsv”, “murine_medulloblastoma_description.csv”)`.
+
+Optionally, HarmonizR is able to work with S4 `SummarizedExperiment` input data. S4 data with a single assay is required and the metadata (colData) must include batch information via "Batch". Example S4 data may be:
+
+```R
+# Creating example S4 data
+nrows <- 20
+ncols <- 8
+counts <- matrix(runif(nrows * ncols, 1, 1e4), nrows)
+colData <- data.frame(Batch=c(1,1,1,1,2,2,2,2))
+SummExp = SummarizedExperiment::SummarizedExperiment(assays=list(counts=counts), colData=colData)
+```
