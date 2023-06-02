@@ -112,11 +112,17 @@ harmonizR <- function(
         message("Initializing HarmonizR...")
     }
     
-    # Check if the input is an S4 class - Summarized experiment
+    # Check if the input is an S4 class summarized experiment
+    s4 <- FALSE
     if (typeof(data_as_input)=="S4") {
+        s4 <- TRUE
         
+        # Save description for rebuilding S4 class summarized experiment
+        saved_s4_input <- data_as_input
+        
+        # Print to console
         if (verbosity >= 1) {
-            message("Recognized input as S4 class - Summarized experiment...")
+            message("Recognized input as S4 class summarized experiment...")
         }
         
         if(length(SummarizedExperiment::assays(data_as_input))!=1){
@@ -126,9 +132,8 @@ harmonizR <- function(
         }
         
         from_s4 <- format_from_S4(data_as_input)
-        # data_as_input <- from_s4[[1]]
-        # description_as_input <- from_s4[[2]]
- 
+        data_as_input <- from_s4[[1]]
+        description_as_input <- from_s4[[2]]
     }
     
     # Check whether data and description are present. If we have an S4 class,
@@ -596,6 +601,19 @@ harmonizR <- function(
         graphics::boxplot(corrected, main = "Corrected", las = 2, ylim = lmts)
         grDevices::dev.off()
         
+    }
+    
+    # Reverting to S4 class summarized experiment
+    if (s4 == TRUE){
+        # Print to console
+        if (verbosity >= 1) {
+            message("Building and returning S4 class summarized experiment...")
+        }
+        
+        to_s4 <- format_to_s4(original_cured, saved_s4_input)
+        
+        # Overwriting 'original_cured' in order to return the S4 class object
+        original_cured <- to_s4
     }
     
     
