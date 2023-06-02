@@ -112,7 +112,27 @@ harmonizR <- function(
         message("Initializing HarmonizR...")
     }
     
-    # Check whether data and description are present
+    # Check if the input is an S4 class - Summarized experiment
+    if (typeof(data_as_input)=="S4") {
+        
+        if (verbosity >= 1) {
+            message("Recognized input as S4 class - Summarized experiment...")
+        }
+        
+        if(length(SummarizedExperiment::assays(data_as_input))!=1){
+            stop(
+                "HarmonizR allows batch effect reduction for ",
+                "SummarizedExperiments with a single assay only.")
+        }
+        
+        from_s4 <- format_from_S4(data_as_input)
+        # data_as_input <- from_s4[[1]]
+        # description_as_input <- from_s4[[2]]
+ 
+    }
+    
+    # Check whether data and description are present. If we have an S4 class,
+    # the input will have been handled prior
     if (is.null(data_as_input) && is.null(description_as_input)) {
         stop(
             "No parameters given. ",
