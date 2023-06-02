@@ -1,6 +1,10 @@
-HarmonizR Initial Release
+CHANGES IN HarmonizR VERSION 0.99.1
 ==============
 
-Changes:
+NEW FEATURES
 
-* None so far
+* HarmonizR now accepts S4 summarized experiment input and will return the batch effect adjusted result as such
+
+SIGNIFICANT OTHER CHANGES
+
+* HarmonizR now imports SummarizedExperiment
