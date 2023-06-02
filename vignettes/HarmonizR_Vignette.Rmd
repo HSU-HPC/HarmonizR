@@ -117,6 +117,22 @@ has been reduced by either `ComBat` or `limma`:
 result
 ```
 
+Alternatively, S4 data may be used as input. In this case, no description
+file is needed as long as a batch description is included within the 
+`SummarizedExperiment`. An example input may look like this:
+
+```{r}
+nrows <- 20
+ncols <- 8
+counts <- matrix(runif(nrows * ncols, 1, 1e4), nrows)
+colData <- data.frame(Batch=c(1,1,1,1,2,2,2,2))
+SummExp = SummarizedExperiment::SummarizedExperiment(
+    assays=list(counts=counts), 
+    colData=colData)
+```
+
+It may be passed instead of `data_as_input` (following parameter explanation).
+
 ### Parameters
 
 HarmonizR expects 2 mandatory and a total of nine optional arguments. 
