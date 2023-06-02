@@ -1,6 +1,6 @@
 Package: HarmonizR
 Title: Handles missing values and makes more data available
-Version: 0.99.0
+Version: 0.99.1
 Authors@R: 
     c(person(given = "Simon",
              family = "Schlumbohm",
@@ -31,7 +31,8 @@ Imports:
     plyr (>= 1.8.6),
     sva (>= 3.36.0),
     seriation (>= 1.3.5),
-    limma (>= 3.46.0)
+    limma (>= 3.46.0),
+    SummarizedExperiment
 Suggests: 
     knitr,
     rmarkdown,
