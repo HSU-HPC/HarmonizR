@@ -1,5 +1,5 @@
 test_that("hamonizR encountered a problem", {
-    # given correctly formatted input:
+    # given correctly formatted input (no S4 given here):
     
     # create a dataframe with 3 rows and 6 columns filled with random numbers
     df <- data.frame(matrix(rnorm(n = 3*6), ncol = 6))
