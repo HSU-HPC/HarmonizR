@@ -2,9 +2,15 @@
 % Please edit documentation in R/visual.r
 \name{visual}
 \alias{visual}
-\title{Visualize feature means}
+\alias{visual2}
+\alias{visual3}
+\title{Visualization}
 \usage{
 visual(input_dataframe, batch_list)
+
+visual2(input_dataframe, batch_list)
+
+visual3(input_dataframe, batch_list)
 }
 \arguments{
 \item{input_dataframe}{A data.frame object as input.}

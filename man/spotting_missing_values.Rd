@@ -4,29 +4,15 @@
 \alias{spotting_missing_values}
 \title{Spotting}
 \usage{
-spotting_missing_values(
-  main_data,
-  batch_list,
-  block_list,
-  needed_values,
-  verbosity
-)
+spotting_missing_values(main_data, batch_list, needed_values)
 }
 \arguments{
 \item{main_data}{This is the input data.frame read in by the HarmonizR.}
 
-\item{batch_list}{An overview of the batch groupings in list form (comes
-from the user).}
-
-\item{block_list}{An overview of the batch groupings in list form (comes
-from the blocking function). If blocking is FALSE, this list will be the
-same as 'batch_list'.}
+\item{batch_list}{An overview of the batch groupings in list form.}
 
 \item{needed_values}{The number of values needed to be present in a batch
 in order to be valid.}
-
-\item{verbosity}{Toggles the amount of stuff printed out by the HarmonizR
-algorithm during execution.}
 }
 \value{
 A list of vectors to pass to the upcoming splitting() function.

@@ -4,11 +4,14 @@
 \alias{rebuild}
 \title{Rebuilding}
 \usage{
-rebuild(cured_subdfs)
+rebuild(cured_subdfs, output_file)
 }
 \arguments{
 \item{cured_subdfs}{a list of data.frames, which are the result from
 splitting().}
+
+\item{output_file}{a string with the desired file name or path. By default
+this parameter will be set equal to "cured_data".}
 }
 \value{
 The rebuild() function returns the adjusted data.frame and writes

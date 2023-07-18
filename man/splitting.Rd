@@ -8,12 +8,9 @@ splitting(
   affiliation_list,
   main_data,
   batch_data,
-  block_list,
+  batch_list,
   algorithm,
-  ComBat_mode,
-  block,
-  verbosity,
-  cores
+  ComBat_mode
 )
 }
 \arguments{
@@ -25,8 +22,7 @@ distribution.}
 \item{batch_data}{This is the description data.frame read in by the
 HarmonizR.}
 
-\item{block_list}{An overview of the batch groupings in list form. If the
-block parameter was used, the groupings are changed accordingly.}
+\item{batch_list}{An overview of the batch groupings in list form.}
 
 \item{algorithm}{Either "ComBat" or "limma". Based on the selected algorithm
 for the harmonizR() function.}
@@ -34,15 +30,6 @@ for the harmonizR() function.}
 \item{ComBat_mode}{The chosen ComBat mode influences the parameters the
 ComBat algorithm is using. Based on the ComBat_mode parameter given to the
 harmonizR() function. Not active during limma execution.}
-
-\item{block}{The block parameter is here used to determine whether there are
-single-batch dataframes at all present.}
-
-\item{verbosity}{Toggles the amount of stuff printed out by the HarmonizR
-algorithm during execution.}
-
-\item{cores}{Manually sets the number of cores the user wants to be used
-during HarmonizR's execution. A positive integer.}
 }
 \value{
 Returns a list of 'chopped up' data.frames

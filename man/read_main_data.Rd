@@ -7,11 +7,11 @@
 read_main_data(data_source)
 }
 \arguments{
-\item{data_source}{Usually the path to the input data. It can also be passed
-directly as a correctly formatted data.frame.}
+\item{data_source}{Usually the path to the input data. It can also be a
+correctly formatted data.frame.}
 }
 \value{
-To-be-adjusted data as data.frame
+Main Data as data.frame
 }
 \description{
 The read_main_data function reads in a file via its file path and converts
