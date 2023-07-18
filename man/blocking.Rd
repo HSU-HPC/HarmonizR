@@ -7,14 +7,14 @@
 blocking(batch_list, block)
 }
 \arguments{
+\item{batch_list}{The list with information about batch-affiliations for
+every sample.}
+
 \item{block}{The blocking parameter (how many batches should always get
 blocked together).}
-
-\item{bacth_list}{The list with information about batch-affiliations for
-every sample.}
 }
 \value{
-Returns an updated 'batch_list' with blocking included.
+Returns an updated 'batch_list' with blocking included
 }
 \description{
 This function performs blocking on the given description and therefore

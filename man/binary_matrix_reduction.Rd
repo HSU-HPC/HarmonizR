@@ -20,5 +20,5 @@ A binary existence matrix returned as a data.frame
 \description{
 This function reduces its input matrix to a binary existence matrix based on
 the given description file (and information on how many values a batch needs)
-for proper adjustment
+for proper adjustment.
 }

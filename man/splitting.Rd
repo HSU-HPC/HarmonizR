@@ -12,7 +12,8 @@ splitting(
   algorithm,
   ComBat_mode,
   block,
-  prints
+  verbosity,
+  cores
 )
 }
 \arguments{
@@ -37,8 +38,11 @@ harmonizR() function. Not active during limma execution.}
 \item{block}{The block parameter is here used to determine whether there are
 single-batch dataframes at all present.}
 
-\item{prints}{Toggles the amount of stuff printed out by the HarmonizR
+\item{verbosity}{Toggles the amount of stuff printed out by the HarmonizR
 algorithm during execution.}
+
+\item{cores}{Manually sets the number of cores the user wants to be used
+during HarmonizR's execution. A positive integer.}
 }
 \value{
 Returns a list of 'chopped up' data.frames

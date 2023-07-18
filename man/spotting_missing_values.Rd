@@ -9,7 +9,7 @@ spotting_missing_values(
   batch_list,
   block_list,
   needed_values,
-  prints
+  verbosity
 )
 }
 \arguments{
@@ -25,7 +25,7 @@ same as 'batch_list'.}
 \item{needed_values}{The number of values needed to be present in a batch
 in order to be valid.}
 
-\item{prints}{Toggles the amount of stuff printed out by the HarmonizR
+\item{verbosity}{Toggles the amount of stuff printed out by the HarmonizR
 algorithm during execution.}
 }
 \value{

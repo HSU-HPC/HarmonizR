@@ -14,52 +14,83 @@ harmonizR(
   sort = FALSE,
   block = NULL,
   output_file = "cured_data",
-  prints = "standard"
+  verbosity = 1,
+  cores = FALSE,
+  ur = TRUE
 )
 }
 \arguments{
-\item{data_as_input}{Path to input data. Please read the SOP for the correct
-input format found on https://github.com/SimonSchlumbohm/HarmonizR.
-Additionally, the input can be a data.frame with proper row- and column
-names.}
+\item{data_as_input}{Path to input data. Additionally, the input can be a
+data.frame with proper row- and column names.}
 
-\item{description_as_input}{Path to input description. Please read the SOP
-for the correct input format found on
-https://github.com/SimonSchlumbohm/HarmonizR. Additionally, the input can be
-a data.frame with three columns total.}
+\item{description_as_input}{Path to input description. Additionally, the
+input can be a data.frame with three columns total.}
+
+\item{...}{Unsettable parameter. Used to make all parameters below optional.
+Documented to adhere with Bioconductor guidelines.}
 
 \item{algorithm}{Optional. Pass either "ComBat" or "limma" to select the
 preferred adjustment method. Defaults to ComBat.}
 
 \item{ComBat_mode}{Optional. Pass a number between 1 and 4 to select the
 desired ComBat parameters. Can only be set when ComBat is used. For
-information on the meaning of the numbers, please view the SOP found on
-https://github.com/SimonSchlumbohm/HarmonizR. Defaults to 1.}
+information on the meaning of the numbers, please view the SOP. Defaults to
+1.}
 
 \item{plot}{Optional. Takes either "samplemeans" for sample specific means,
-"featuremeans" for feature specific means or "CV" for the coeffivient of
-variation as input and creates before/after plots for the given data.
-Defaults to FALSE -> Turned off.}
+"featuremeans" for feature specific means or "CV" for the coefficient of
+variation as input and creates before/after plots for the given data. When
+set, additionally writes out a .pdf file. Defaults to FALSE -> Turned off.}
 
-\item{sort}{XXX}
+\item{sort}{Optional. Method to sort by. Either FALSE or "sparsity_sort",
+"seriation_sort" or "jaccard_sort".}
 
-\item{block}{XXX}
+\item{block}{Optional. How many batches should be treated as one during
+blocking. Greatly affects the number of sub-dataframes produced and reduces
+runtime. Turned off by default.}
 
 \item{output_file}{Optional. Takes a string as input for the .tsv file name.
 This can also be a path. Defaults to "cured_data", hence yielding a
-"cured_data.tsv" file.}
+"cured_data.tsv" file in the work directory from which it was called.
+Can be turned of by passing FALSE.}
 
-\item{prints}{Optional. Toggles the amount of stuff printed out by the
-HarmonizR algorithm during execution.}
+\item{verbosity}{Optional. Toggles the amount of information printed out by
+the HarmonizR algorithm during execution. Takes a number from 0 (also "mute)
+to any positive number. The higher, the more information will be printed. For
+the standard user, anything above 2 is rarely needed. Defaults to 1.}
+
+\item{cores}{Optional. Manually sets the number of cores the user wants to
+be used during HarmonizR's execution. Takes a positive integer. Defaults to
+the amount of available cores.}
+
+\item{ur}{Optional. Toggles the functionality of the removal of unique
+combinations for increased data rescue. Defaults to TRUE. Not recommended to
+set to FALSE, as it exists for testing and reproducibility purposes.}
 }
 \value{
-A .tsv file by default called cured_data.tsv will be written out as
-a result.
-As a return, the harmonizR function will yield the batch effect adjusted
-data.frame.
+The batch effect adjusted data.frame. Additionally, a .tsv file by
+default called "cured_data.tsv" will be written out as a result
 }
 \description{
-This function executes the entire harmonizR program and executes all other
+This function executes the entire HarmonizR program and executes all other
 functions found in this package. Therefore, this is the only function in
 need of calling.
+}
+\examples{
+# create a dataframe with 3 rows and 6 columns filled with random numbers
+df <- data.frame(matrix(rnorm(n = 3*6), ncol = 6))
+# set the column names
+colnames(df) <- c("A", "B", "C", "D", "E", "F")
+# create a vector of row names
+row_names <- c("F1", "F2", "F3")
+# set the row names
+rownames(df) <- row_names
+
+# create a vector of batch numbers
+batch <- rep(1:3, each = 2)
+# create a dataframe with 6 rows and 3 columns
+des <- data.frame(ID = colnames(df), sample = 1:6, batch = batch)
+
+# use the harmonizR() function; turning off creation of an output .tsv file
+harmonizR(df, des, output_file = FALSE, cores = 1)
 }
