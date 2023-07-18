@@ -9,9 +9,9 @@ The implementation is meant to make as much data available as possible with mini
 ## Installation
 This package has been published originally in a [different repository](https://github.com/SimonSchlumbohm/HarmonizR), where it has a stable zenodo ID. It can still be downloaded and installed from here using method 1..
 
-1. Download this package. While having [devtools](https://www.r-project.org/nosvn/pandoc/devtools.html) installed, run `devtools::install("HarmonizR")` within the HarmonizR package.
+1. Download this package (please check the desired version). While having [devtools](https://www.r-project.org/nosvn/pandoc/devtools.html) installed, run `devtools::install("HarmonizR")` within the HarmonizR package.
 
-2. The package can be installed directly from GitHub via the command `devtools::install_github("SimonSchlumbohm/HarmonizR/HarmonizR")`.
+2. The newest package version can be installed directly from GitHub via the command `devtools::install_github("SimonSchlumbohm/HarmonizR/HarmonizR")`. Alternatively, to download the version provided here via `install_github()`: `devtools::install_github("HSU-HPC/HarmonizR")`.
 
 
 ## Usage

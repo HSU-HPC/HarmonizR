@@ -4,7 +4,7 @@
 \alias{crop_row}
 \title{Cropping current row}
 \usage{
-crop_row(main_data, batch_data, batch_list, each_vector, current_row)
+crop_row(main_data, batch_data, block_list, each_vector, current_row)
 }
 \arguments{
 \item{main_data}{This is the input data.frame read in by the HarmonizR.}
@@ -12,7 +12,7 @@ crop_row(main_data, batch_data, batch_list, each_vector, current_row)
 \item{batch_data}{This is the description data.frame read in by the
 HarmonizR.}
 
-\item{batch_list}{An overview of the batch groupings in list form.}
+\item{block_list}{An overview of the batch groupings in list form.}
 
 \item{each_vector}{A single vector extracted from affiliation_list. For
 further information see the return value from the spotting_missing_values()

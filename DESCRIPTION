@@ -6,17 +6,11 @@ Authors@R:
              family = "Schlumbohm",
              role = c("aut", "cre"),
              email = "schlumbohm@hsu-hh.de"),
-      person(given = "Hannah",
-             family = "Voss",
-             role = "aut"),
       person(given = "Julia",
              family = "Neumann",
              role = "aut"),
       person(given = "Philipp",
              family = "Neumann",
-             role = "aut"),
-      person(given = "Christoph",
-             family = "Krisp",
              role = "aut"))
 Description: An implementation, which takes input data and makes it available
     for proper batch effect removal by ComBat or Limma. The implementation appropriately
@@ -29,7 +23,7 @@ License: `use_gpl3_license()`
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 biocViews:
 Imports: 
     BiocManager (>= 1.30.16),
@@ -37,4 +31,5 @@ Imports:
     foreach (>= 1.5.1),
     janitor (>= 2.1.0),
     plyr (>= 1.8.6),
-    sva (>= 3.36.0)
+    sva (>= 3.36.0),
+    seriation (>= 1.3.5)

@@ -11,7 +11,10 @@ harmonizR(
   algorithm = "ComBat",
   ComBat_mode = 1,
   plot = FALSE,
-  output_file = "cured_data"
+  sort = FALSE,
+  block = NULL,
+  output_file = "cured_data",
+  prints = "standard"
 )
 }
 \arguments{
@@ -38,9 +41,16 @@ https://github.com/SimonSchlumbohm/HarmonizR. Defaults to 1.}
 variation as input and creates before/after plots for the given data.
 Defaults to FALSE -> Turned off.}
 
+\item{sort}{XXX}
+
+\item{block}{XXX}
+
 \item{output_file}{Optional. Takes a string as input for the .tsv file name.
 This can also be a path. Defaults to "cured_data", hence yielding a
 "cured_data.tsv" file.}
+
+\item{prints}{Optional. Toggles the amount of stuff printed out by the
+HarmonizR algorithm during execution.}
 }
 \value{
 A .tsv file by default called cured_data.tsv will be written out as
