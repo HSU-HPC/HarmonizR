@@ -114,7 +114,7 @@ harmonizR <- function(
     
     # Check if the input is an S4 class summarized experiment
     s4 <- FALSE
-    if (typeof(data_as_input)=="S4") {
+    if (typeof(data_as_input) == "S4") {
         s4 <- TRUE
         
         # Save description for rebuilding S4 class summarized experiment
@@ -125,7 +125,7 @@ harmonizR <- function(
             message("Recognized input as S4 class summarized experiment...")
         }
         
-        if(length(SummarizedExperiment::assays(data_as_input))!=1){
+        if(length(SummarizedExperiment::assays(data_as_input)) != 1){
             stop(
                 "HarmonizR allows batch effect reduction for ",
                 "SummarizedExperiments with a single assay only.")
@@ -398,7 +398,7 @@ harmonizR <- function(
     } 
     # Else create "block_list" based on user input
     else {
-        number_batches <- utils::tail(batch_list, n=1)
+        number_batches <- utils::tail(batch_list, n = 1)
         # For example: valid input for "block" with 5 batch data would be 2, 3 
         # or 4
         if (is.double(block) && block < number_batches && block > 1) {

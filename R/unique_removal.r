@@ -21,7 +21,7 @@ unique_removal <- function(affiliation_list){
     # Initialize a list of indexes, that have already been matched to
     already_matched_to_these <- list()
     unique_ind <- which(!(duplicated(affiliation_list)|duplicated(
-        affiliation_list, fromLast=TRUE)))
+        affiliation_list, fromLast = TRUE)))
     
     for (element in unique_ind){
         

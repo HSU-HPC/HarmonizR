@@ -128,7 +128,7 @@ sorting <- function(df, batch_list, batch_data, order_to_go_by, verbosity){
         order_for_printing <- seq(1, length(na_overview))
         order_for_printing <- order_for_printing[order(
             na_overview, 
-            decreasing=FALSE)]
+            decreasing = FALSE)]
         
         # Print to console
         if (verbosity >= 3){
@@ -136,7 +136,7 @@ sorting <- function(df, batch_list, batch_data, order_to_go_by, verbosity){
             message(order_for_printing)
         }
         
-        target <- unlist(key_list[order(na_overview, decreasing=FALSE)])
+        target <- unlist(key_list[order(na_overview, decreasing = FALSE)])
     }
     
     # Print to console
