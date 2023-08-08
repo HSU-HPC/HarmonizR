@@ -553,67 +553,22 @@ harmonizR <- function(
     
     
     # ----- VISUALIZATION SECTION ---------------------------------------------
-    # Save a version of the logged cured for the harmonizR() return (since 
-    # 'visual()', 'visual2()' and 'visual3' change it)
-    original_cured <- cured
+    # Visualize the data for the user
+    plot_generation(
+        backup_batch_list, main_data, cured, plot, verbosity, output_file)
     
-    # Use the original "backup_batch_list" for the visualize functions
-    batch_list <- backup_batch_list
     
-    # Reverse the log for visualizing
-    main_data <- 2^main_data
-    cured <- 2^cured
-    
-    if (plot == "featuremeans" || plot == "samplemeans" || plot == "CV"){
-        message("Saving plot to pdf...")
-        
-        # Define the input data and batch list
-        original <- NULL
-        corrected <- NULL
-        if (plot == "featuremeans") {
-            original <- visual(main_data, batch_list)
-            corrected <- visual(cured, batch_list)
-        } else if (plot == "samplemeans") {
-            original <- visual2(main_data, batch_list)
-            corrected <- visual2(cured, batch_list)
-        } else if (plot == "CV") {
-            original <- visual3(main_data, batch_list)
-            corrected <- visual3(cured, batch_list)
-        }
-        
-        # Set the y-axis limit based on the original and corrected data
-        lmts <- range(original, corrected)
-        
-        # Print to console
-        if (verbosity >= 1) {
-            message("Visualizing ", plot, "...")
-        }
-        
-        # Create a boxplot in the plot panel and save it to a PDF file
-        graphics::par(mfrow = c(1, 2))
-        graphics::boxplot(original, main = "Original", las = 2, ylim = lmts)
-        graphics::boxplot(corrected, main = "Corrected", las = 2, ylim = lmts)
-        
-        plotfilename <- paste(output_file, "pdf", sep = ".")
-        # Width/height of the plot in inches
-        grDevices::pdf(file = plotfilename, width = 4, height = 4) 
-        graphics::boxplot(original, main = "Original", las = 2, ylim = lmts)
-        graphics::boxplot(corrected, main = "Corrected", las = 2, ylim = lmts)
-        grDevices::dev.off()
-        
-    }
-    
-    # Reverting to S4 class summarized experiment
+    # ----- REVERTING TO S4 CLASS SUMMARIZED EXPERIMENT - SECTION -------------
     if (s4 == TRUE){
         # Print to console
         if (verbosity >= 1) {
             message("Building and returning S4 class summarized experiment...")
         }
         
-        to_s4 <- format_to_s4(original_cured, saved_s4_input)
+        to_s4 <- format_to_s4(cured, saved_s4_input)
         
-        # Overwriting 'original_cured' in order to return the S4 class object
-        original_cured <- to_s4
+        # Overwriting 'cured' in order to return the S4 class object
+        cured <- to_s4
     }
     
     
@@ -628,5 +583,5 @@ harmonizR <- function(
         message("Finishing time: ", Sys.time())
     }
     
-    return(original_cured)
+    return(cured)
 }
