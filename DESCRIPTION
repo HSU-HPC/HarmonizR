@@ -1,6 +1,6 @@
 Package: HarmonizR
 Title: Handles missing values and makes more data available
-Version: 0.99.1
+Version: 0.99.2
 Authors@R: 
     c(person(given = "Simon",
              family = "Schlumbohm",
@@ -18,7 +18,7 @@ Description: An implementation, which takes input data and makes it available
     with sufficient data to feed the ComBat or limma algorithm. The adjusted 
     data is returned to the user as a rebuild matrix. The implementation is 
     meant to make as much data available as possible with minimal data loss.
-Depends: R (>= 4.2.0)
+Depends: R (>= 4.3.0)
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
