@@ -17,6 +17,12 @@ Additionally, a [troubleshooting guide](https://github.com/HSU-HPC/HarmonizR/blo
 
 Alternatively the newest package version can be installed directly from GitHub via the command `devtools::install_github("HSU-HPC/HarmonizR")`.
 
+3. Download the package from Bioconductor (upon availability!). For this, please run the following:
+
+`if (!requireNamespace("BiocManager", quietly = TRUE))`
+    `install.packages("BiocManager")`
+`BiocManager::install("HarmonizR")`
+
 ## Usage
 Include `library(HarmonizR)` in your R script and execute it with your data and batch description files as demonstrated with the example files `harmonizR(“murine_medulloblastoma_data.tsv”, “murine_medulloblastoma_description.csv”)`. The files are found under HarmonizR/inst/extdata.
 

@@ -63,6 +63,16 @@ which was within the .zip file. While in the `R` environment and while in the
 HarmonizR directory, enter in the command line:
 `devtools::install()` to install the package.
 
+Upon availability, HarmonizR may also be installed via Bioconductor. For this,
+please run the following:
+
+```{r eval=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("HarmonizR")
+```
+
 Once installed, the HarmonizR package can be used via:
 
 ```{r setup}
